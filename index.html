@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHATALOV WORKS — мастерская прикладных AI-решений</title>
+  <meta name="description" content="Дмитрий Шаталов — разработка прикладных AI-сервисов, Telegram-ботов, автоматизации и API-интеграций." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="brand">
+        <a class="brand__wordmark" href="/">SHATALOV WORKS</a>
+        <p class="brand__descriptor">Мастерская прикладных AI-решений</p>
+      </div>
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="nav__link" href="#works">Работы</a>
+        <a class="nav__link" href="#about">О мастерской</a>
+        <a class="nav__link" href="#contact">Контакты</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Первый экран">
+        <div class="hero__mark" aria-hidden="true">SW / HERO</div>
+
+        <div class="hero__layout">
+          <div class="hero__copy">
+            <p class="hero__eyebrow">SW / APPLIED AI</p>
+
+            <h1 class="hero__title">
+              <span class="hero__title-line">Прикладные AI&#8209;решения</span>
+              <span class="hero__title-line">для реальных задач.</span>
+            </h1>
+
+            <p class="hero__slogan">Проектирую. Собираю. Запускаю.</p>
+
+            <p class="hero__services">
+              AI-сервисы · Telegram-боты · автоматизация · интеграции
+            </p>
+
+            <div class="hero__actions">
+              <a class="cta cta--primary" href="#works">Смотреть работы ↓</a>
+              <a class="cta cta--secondary" href="#contact">Обсудить задачу →</a>
+            </div>
+
+            <div class="hero__brand-statement">
+              <p class="hero__brand-mark">SW / ONE PERSON</p>
+              <p class="hero__brand-text">
+                Один человек.<br />
+                Одна ответственность.<br />
+                Один результат.
+              </p>
+            </div>
+          </div>
+
+          <div class="hero__visual">
+            <div class="hero__frame">
+              <img
+                class="hero__image"
+                src="assets/hero-exploded-view.png"
+                alt="Инженерная взрыв-схема SHATALOV WORKS: от реальной задачи к работающему результату"
+                width="1920"
+                height="1080"
+                decoding="async"
+                fetchpriority="high"
+              />
+
+              <ul class="hero__hotspots" aria-label="Точки проектов на схеме">
+                <li class="hotspot" style="--hotspot-x: 79.5%; --hotspot-y: 32.5%;">
+                  <button
+                    class="hotspot__trigger"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="hotspot-tip-01"
+                    aria-describedby="hotspot-tip-01"
+                  >
+                    <span class="hotspot__ring" aria-hidden="true"></span>
+                    <span class="hotspot__dot" aria-hidden="true"></span>
+                    <span class="visually-hidden">GreenScan</span>
+                  </button>
+                  <div class="hotspot__tip" id="hotspot-tip-01" role="tooltip">
+                    <p class="hotspot__mark">SW / WORK 01</p>
+                    <p class="hotspot__name">GreenScan</p>
+                    <p class="hotspot__desc">Vision-анализ состояния газона по фотографии.</p>
+                    <a class="hotspot__link" href="https://green-scan.ru" target="_blank" rel="noopener noreferrer">Открыть работу →</a>
+                  </div>
+                </li>
+
+                <li class="hotspot" style="--hotspot-x: 79.5%; --hotspot-y: 49%;">
+                  <button
+                    class="hotspot__trigger"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="hotspot-tip-02"
+                    aria-describedby="hotspot-tip-02"
+                  >
+                    <span class="hotspot__ring" aria-hidden="true"></span>
+                    <span class="hotspot__dot" aria-hidden="true"></span>
+                    <span class="visually-hidden">Корзина рядом</span>
+                  </button>
+                  <div class="hotspot__tip" id="hotspot-tip-02" role="tooltip">
+                    <p class="hotspot__mark">SW / WORK 02</p>
+                    <p class="hotspot__name">Корзина рядом</p>
+                    <p class="hotspot__desc">Подбор недорогих блюд по ценам ближайших магазинов.</p>
+                    <a class="hotspot__link" href="https://korzinaryadom.ru" target="_blank" rel="noopener noreferrer">Открыть работу →</a>
+                  </div>
+                </li>
+
+                <li class="hotspot" style="--hotspot-x: 79.5%; --hotspot-y: 65.5%;">
+                  <button
+                    class="hotspot__trigger"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="hotspot-tip-03"
+                    aria-describedby="hotspot-tip-03"
+                  >
+                    <span class="hotspot__ring" aria-hidden="true"></span>
+                    <span class="hotspot__dot" aria-hidden="true"></span>
+                    <span class="visually-hidden">ServiceAct</span>
+                  </button>
+                  <div class="hotspot__tip" id="hotspot-tip-03" role="tooltip">
+                    <p class="hotspot__mark">SW / WORK 03</p>
+                    <p class="hotspot__name">ServiceAct</p>
+                    <p class="hotspot__desc">Голос или текст → структурированный сервисный акт → PDF.</p>
+                    <a class="hotspot__link" href="https://serviceact.ru/" target="_blank" rel="noopener noreferrer">Открыть работу →</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="hero__captions">
+              <p class="hero__hint">
+                <span class="hero__hint-mark">
+                  <span class="hero__hint-accent">INTERACTIVE</span> / 03 WORKS
+                </span>
+                <span class="hero__hint-action hero__hint-action--hover">
+                  Наведите на точки, чтобы посмотреть проекты&nbsp;<span class="hero__hint-arrow">→</span>
+                </span>
+                <span class="hero__hint-action hero__hint-action--touch">
+                  Нажмите на точки, чтобы посмотреть проекты
+                </span>
+              </p>
+              <p class="hero__assembly" aria-hidden="true">ASSEMBLY / 001</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="works" id="works" aria-label="Работы">
+        <div class="works__intro reveal">
+          <div class="works__intro-rule" aria-hidden="true"></div>
+          <p class="works__eyebrow">SW / SELECTED WORKS</p>
+          <h2 class="works__title">РАБОТЫ</h2>
+          <p class="works__lead">Некоторые из реализованных проектов.</p>
+        </div>
+
+        <article class="work work--01 reveal">
+          <div class="work__media">
+            <p class="work__media-mark" aria-hidden="true">SW / WORK 01 · SCREEN</p>
+            <figure class="work__figure">
+              <img
+                class="work__image"
+                src="assets/greenscan.png"
+                alt="Интерфейс GreenScan: загрузка фотографий газона и AI-анализ"
+                width="1600"
+                height="1000"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+          <div class="work__body">
+            <p class="work__mark">SW / WORK 01</p>
+            <h3 class="work__name">GreenScan</h3>
+            <p class="work__summary">
+              AI/Vision-сервис анализа состояния газона по фотографии.
+            </p>
+
+            <div class="work__block">
+              <h4 class="work__label">Задача</h4>
+              <p class="work__text">
+                По фотографии помочь пользователю определить состояние газона
+                и получить понятный результат анализа.
+              </p>
+            </div>
+
+            <div class="work__block">
+              <h4 class="work__label">Что реализовано</h4>
+              <ul class="work__list">
+                <li>анализ изображения;</li>
+                <li>проверка, что на фотографии действительно газон;</li>
+                <li>AI/Vision-классификация;</li>
+                <li>структурированный результат;</li>
+                <li>веб-интерфейс;</li>
+                <li>самостоятельный деплой приложения.</li>
+              </ul>
+            </div>
+
+            <p class="work__tech">
+              Python / FastAPI / Vision AI / Docker / Nginx / Linux
+            </p>
+
+            <a class="work__cta" href="https://green-scan.ru" target="_blank" rel="noopener noreferrer">Открыть проект GreenScan →</a>
+          </div>
+        </article>
+
+        <article class="work work--02 reveal">
+          <div class="work__body">
+            <p class="work__mark">SW / WORK 02</p>
+            <h3 class="work__name">Корзина рядом</h3>
+            <p class="work__summary">
+              Сервис подбора недорогих блюд
+              по ценам ближайших магазинов.
+            </p>
+
+            <div class="work__block">
+              <h4 class="work__label">Задача</h4>
+              <p class="work__text">
+                Связать геолокацию, реальные магазины и цены продуктов,
+                чтобы пользователь мог подобрать блюда
+                на основе доступных рядом товаров.
+              </p>
+            </div>
+
+            <div class="work__block">
+              <h4 class="work__label">Что реализовано</h4>
+              <ul class="work__list">
+                <li>поиск магазинов рядом;</li>
+                <li>карта;</li>
+                <li>работа с внешними источниками данных;</li>
+                <li>получение и нормализация цен;</li>
+                <li>расчёт стоимости блюд;</li>
+                <li>веб-интерфейс;</li>
+                <li>API-интеграции;</li>
+                <li>самостоятельный деплой.</li>
+              </ul>
+            </div>
+
+            <p class="work__tech">
+              Python / FastAPI / JavaScript / API / Docker / Nginx / Linux
+            </p>
+
+            <a class="work__cta" href="https://korzinaryadom.ru" target="_blank" rel="noopener noreferrer">Открыть проект «Корзина рядом» →</a>
+          </div>
+          <div class="work__media">
+            <p class="work__media-mark" aria-hidden="true">SW / WORK 02 · SCREEN</p>
+            <figure class="work__figure">
+              <img
+                class="work__image"
+                src="assets/korzina.png"
+                alt="Интерфейс «Корзина рядом»: фильтры поиска и карта магазинов"
+                width="1600"
+                height="1000"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+        </article>
+
+        <article class="work work--03 reveal">
+          <div class="work__media">
+            <p class="work__media-mark" aria-hidden="true">SW / WORK 03 · SCREEN</p>
+            <figure class="work__figure">
+              <img
+                class="work__image"
+                src="assets/serviceact.png"
+                alt="Интерфейс ServiceAct: формирование сервисного акта"
+                width="1600"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+          <div class="work__body">
+            <p class="work__mark">SW / WORK 03</p>
+            <h3 class="work__name">ServiceAct</h3>
+            <p class="work__summary">
+              AI-сервис для сервисного мастера:
+              голос или текст → структурированный сервисный акт → PDF.
+            </p>
+
+            <div class="work__block">
+              <h4 class="work__label">Задача</h4>
+              <p class="work__text">
+                Сократить ручное заполнение сервисных документов
+                после выполнения работ.
+              </p>
+            </div>
+
+            <div class="work__block">
+              <h4 class="work__label">Что реализовано</h4>
+              <ul class="work__list">
+                <li>голосовой ввод;</li>
+                <li>Speech-to-Text;</li>
+                <li>AI-структурирование фактов;</li>
+                <li>формирование сервисного акта;</li>
+                <li>генерация PDF;</li>
+                <li>веб-интерфейс.</li>
+              </ul>
+            </div>
+
+            <p class="work__tech">
+              Python / FastAPI / Speech-to-Text / LLM / SQLite / PDF
+            </p>
+
+            <a class="work__cta" href="https://serviceact.ru/" target="_blank" rel="noopener noreferrer">Открыть проект ServiceAct →</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="capabilities" id="capabilities" aria-label="Чем я занимаюсь">
+        <div class="capabilities__intro reveal">
+          <div class="capabilities__rule" aria-hidden="true"></div>
+          <p class="capabilities__eyebrow">SW / CAPABILITIES</p>
+          <h2 class="capabilities__title">ЧЕМ Я ЗАНИМАЮСЬ</h2>
+          <p class="capabilities__lead">
+            Помимо веб-сервисов, разрабатываю Telegram-ботов
+            и решения для автоматизации рутинных процессов.
+          </p>
+        </div>
+
+        <ul class="capabilities__list reveal">
+          <li class="capabilities__item">
+            <span class="capabilities__mark">SW / CAP 01</span>
+            <span class="capabilities__name">AI-сервисы</span>
+          </li>
+          <li class="capabilities__item">
+            <span class="capabilities__mark">SW / CAP 02</span>
+            <span class="capabilities__name">Telegram-боты</span>
+          </li>
+          <li class="capabilities__item">
+            <span class="capabilities__mark">SW / CAP 03</span>
+            <span class="capabilities__name">Автоматизация процессов</span>
+          </li>
+          <li class="capabilities__item">
+            <span class="capabilities__mark">SW / CAP 04</span>
+            <span class="capabilities__name">API и интеграции</span>
+          </li>
+          <li class="capabilities__item">
+            <span class="capabilities__mark">SW / CAP 05</span>
+            <span class="capabilities__name">Развёртывание приложений</span>
+          </li>
+        </ul>
+
+        <p class="capabilities__stack reveal">
+          Python / FastAPI / Docker / Nginx / Linux / API / SQLite / Vision / LLM / Speech-to-Text
+        </p>
+      </section>
+
+      <section class="about" id="about" aria-label="О мастерской">
+        <div class="about__intro reveal">
+          <div class="about__rule" aria-hidden="true"></div>
+          <p class="about__eyebrow">SW / ABOUT</p>
+          <h2 class="about__title">О МАСТЕРСКОЙ</h2>
+          <p class="about__lead">
+            До AI я успел поработать<br />
+            в нескольких профессиональных мирах.
+          </p>
+        </div>
+
+        <div class="about__path reveal">
+          <article class="about__stage">
+            <div class="about__stage-head">
+              <span class="about__stage-mark">SW / 01</span>
+              <h3 class="about__stage-title">ФИЗИКА</h3>
+            </div>
+            <div class="about__stage-body">
+              <p class="about__stage-text">Московский инженерно-физический институт.</p>
+              <p class="about__stage-text">
+                <span class="about__stage-label">Специальность</span>
+                молекулярная физика, ионная оптика
+                и масс-спектрометрия.
+              </p>
+            </div>
+          </article>
+
+          <div class="about__connector" aria-hidden="true">
+            <span class="about__arrow">→</span>
+          </div>
+
+          <article class="about__stage">
+            <div class="about__stage-head">
+              <span class="about__stage-mark">SW / 02</span>
+              <h3 class="about__stage-title">ФИНАНСЫ</h3>
+            </div>
+            <div class="about__stage-body">
+              <p class="about__stage-text">
+                Российская экономическая академия
+                им.&nbsp;Г.&nbsp;В.&nbsp;Плеханова.
+              </p>
+              <p class="about__stage-text">
+                <span class="about__stage-label">Специальность</span>
+                бухгалтер-аудитор.
+              </p>
+              <p class="about__stage-text">Работа в банковской сфере.</p>
+            </div>
+          </article>
+
+          <div class="about__connector" aria-hidden="true">
+            <span class="about__arrow">→</span>
+          </div>
+
+          <article class="about__stage">
+            <div class="about__stage-head">
+              <span class="about__stage-mark">SW / 03</span>
+              <h3 class="about__stage-title">БИЗНЕС</h3>
+            </div>
+            <div class="about__stage-body">
+              <p class="about__stage-text">
+                Создание и развитие собственного бизнеса
+                в сфере розничной торговли.
+              </p>
+            </div>
+          </article>
+
+          <div class="about__connector" aria-hidden="true">
+            <span class="about__arrow">→</span>
+          </div>
+
+          <article class="about__stage about__stage--signal">
+            <div class="about__stage-head">
+              <span class="about__stage-mark">SW / 04</span>
+              <h3 class="about__stage-title">AI</h3>
+            </div>
+            <div class="about__stage-body">
+              <p class="about__stage-text">Прикладные AI-сервисы.</p>
+              <p class="about__stage-text">Telegram-боты.</p>
+              <p class="about__stage-text">Автоматизация.</p>
+              <p class="about__stage-text">API.</p>
+              <p class="about__stage-text">Разработка и деплой приложений.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="about__track reveal" aria-hidden="true">
+          ФИЗИКА → ФИНАНСЫ → БИЗНЕС → AI
+        </p>
+      </section>
+
+      <section class="principles" id="principles" aria-label="Принципы работы">
+        <div class="principles__intro reveal">
+          <p class="principles__eyebrow">SW / PRINCIPLES</p>
+          <p class="principles__lead">Как я работаю.</p>
+        </div>
+
+        <ul class="principles__list reveal">
+          <li class="principles__item">
+            <span class="principles__num">01</span>
+            <div class="principles__content">
+              <h3 class="principles__title">РАБОТАЮ ОДИН</h3>
+              <p class="principles__text">
+                Без передачи задач по цепочке
+                и без вымышленной команды.
+              </p>
+            </div>
+          </li>
+          <li class="principles__item">
+            <span class="principles__num">02</span>
+            <div class="principles__content">
+              <h3 class="principles__title">ОТВЕЧАЮ ЛИЧНО</h3>
+              <p class="principles__text">
+                За сроки, качество
+                и итоговый результат.
+              </p>
+            </div>
+          </li>
+          <li class="principles__item">
+            <span class="principles__num">03</span>
+            <div class="principles__content">
+              <h3 class="principles__title">ДОВОЖУ ДО ЗАПУСКА</h3>
+              <p class="principles__text">
+                Не ограничиваюсь идеей,
+                макетом или прототипом.
+              </p>
+            </div>
+          </li>
+          <li class="principles__item">
+            <span class="principles__num">04</span>
+            <div class="principles__content">
+              <h3 class="principles__title">ЦЕНЮ ТОЧНОСТЬ</h3>
+              <p class="principles__text">
+                Пунктуальность,
+                понятные договорённости
+                и аккуратная работа.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="contact" id="contact" aria-label="Контакты">
+        <div class="contact__inner">
+          <div class="contact__copy reveal">
+            <p class="contact__eyebrow">SW / CONTACT</p>
+            <h2 class="contact__title">ОБСУДИТЬ ЗАДАЧУ</h2>
+            <p class="contact__text">
+              Если есть задача, которую можно превратить
+              в работающий цифровой продукт — напишите мне.
+            </p>
+          </div>
+
+          <div class="contact__actions reveal">
+            <a
+              class="contact__link"
+              href="https://t.me/Fixxerqq"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Telegram → @Fixxerqq
+            </a>
+            <a class="contact__link" href="mailto:shattl4321@gmail.com">
+              Email → shattl4321@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div class="contact__brand reveal">
+          <p class="contact__wordmark">SHATALOV WORKS</p>
+          <p class="contact__slogan">Проектирую. Собираю. Запускаю.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="site-footer__copy">© 2026 SHATALOV WORKS</p>
+      <p class="site-footer__name">Дмитрий Шаталов</p>
+      <p class="site-footer__domain">dmitryshatalov.tech</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
