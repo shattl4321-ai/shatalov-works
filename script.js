@@ -37,7 +37,7 @@
   }
 
   const hero = document.querySelector(".hero");
-  const parallaxTarget = document.querySelector(".hero__frame");
+  const parallaxTarget = document.querySelector(".hero__compose");
 
   if (!hero) return;
 
@@ -47,27 +47,6 @@
   const reveal = () => {
     requestAnimationFrame(() => {
       hero.classList.add("is-ready");
-      runHotspotCue();
-    });
-  };
-
-  const runHotspotCue = () => {
-    if (reduceMotion.matches) return;
-
-    const spots = [...document.querySelectorAll(".hotspot")];
-    if (!spots.length) return;
-
-    // Wait for entrance (~0.85s + 0.12s delay), then cue 01 → 02 → 03 once.
-    const startDelay = 1000;
-    const stepDelay = 300;
-
-    spots.forEach((spot, index) => {
-      window.setTimeout(() => {
-        spot.classList.add("is-cueing");
-        window.setTimeout(() => {
-          spot.classList.remove("is-cueing");
-        }, 560);
-      }, startDelay + index * stepDelay);
     });
   };
 
@@ -77,7 +56,7 @@
     reveal();
   }
 
-  /* ---------- Parallax (existing behaviour, target: frame) ---------- */
+  /* ---------- Parallax (compose: image + rail stay aligned) ---------- */
 
   if (parallaxTarget) {
     const maxOffset = 9;
@@ -168,63 +147,6 @@
       { passive: true }
     );
   }
-
-  /* ---------- Hotspots ---------- */
-
-  const hotspots = [...document.querySelectorAll(".hotspot")];
-  if (!hotspots.length) return;
-
-  const closeAll = (except = null) => {
-    hotspots.forEach((item) => {
-      if (item === except) return;
-      item.classList.remove("is-open");
-      const trigger = item.querySelector(".hotspot__trigger");
-      if (trigger) trigger.setAttribute("aria-expanded", "false");
-    });
-  };
-
-  const openHotspot = (item) => {
-    closeAll(item);
-    item.classList.add("is-open");
-    const trigger = item.querySelector(".hotspot__trigger");
-    if (trigger) trigger.setAttribute("aria-expanded", "true");
-  };
-
-  const toggleHotspot = (item) => {
-    if (item.classList.contains("is-open")) {
-      item.classList.remove("is-open");
-      const trigger = item.querySelector(".hotspot__trigger");
-      if (trigger) trigger.setAttribute("aria-expanded", "false");
-      return;
-    }
-    openHotspot(item);
-  };
-
-  hotspots.forEach((item) => {
-    const trigger = item.querySelector(".hotspot__trigger");
-    if (!trigger) return;
-
-    trigger.addEventListener("click", (event) => {
-      event.preventDefault();
-      toggleHotspot(item);
-    });
-
-    trigger.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closeAll();
-        trigger.blur();
-      }
-    });
-  });
-
-  document.addEventListener("pointerdown", (event) => {
-    if (event.target.closest(".hotspot")) return;
-    closeAll();
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeAll();
-  });
 
   /* ---------- Works scroll reveal ---------- */
 
