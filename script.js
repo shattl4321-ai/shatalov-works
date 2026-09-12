@@ -176,4 +176,54 @@
       revealNodes.forEach((node) => node.classList.add("is-visible"));
     }
   }
+  /* ---------- Mobile nav (hamburger) ---------- */
+
+  const nav = document.querySelector(".nav");
+  const navToggle = document.querySelector(".nav__toggle");
+  const navMenu = document.querySelector("#nav-menu");
+  const navIcon = navToggle?.querySelector(".nav__toggle-icon");
+  const mobileNavQuery = window.matchMedia("(max-width: 860px)");
+
+  if (nav && navToggle && navMenu && navIcon) {
+    const setNavOpen = (open) => {
+      nav.classList.toggle("is-open", open);
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute(
+        "aria-label",
+        open ? "Закрыть меню" : "Открыть меню"
+      );
+      navIcon.textContent = open ? "×" : "☰";
+    };
+
+    const closeNav = () => setNavOpen(false);
+
+    navToggle.addEventListener("click", () => {
+      if (!mobileNavQuery.matches) return;
+      const open = navToggle.getAttribute("aria-expanded") === "true";
+      setNavOpen(!open);
+    });
+
+    navMenu.querySelectorAll("a.nav__link").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (mobileNavQuery.matches) closeNav();
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      if (navToggle.getAttribute("aria-expanded") !== "true") return;
+      closeNav();
+      navToggle.focus();
+    });
+
+    const onBreakpointChange = () => {
+      if (!mobileNavQuery.matches) closeNav();
+    };
+
+    if (typeof mobileNavQuery.addEventListener === "function") {
+      mobileNavQuery.addEventListener("change", onBreakpointChange);
+    } else if (typeof mobileNavQuery.addListener === "function") {
+      mobileNavQuery.addListener(onBreakpointChange);
+    }
+  }
 })();
