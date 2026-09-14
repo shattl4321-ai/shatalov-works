@@ -1,0 +1,370 @@
+/*
+ * Desktop HERO: approved reference used directly as the visual canvas.
+ * The existing HTML implementation remains a technical fallback <= 1100px.
+ */
+
+.hero-canvas,
+.hero-mobile,
+.hero__reference-overlay,
+.hero-routes,
+.hero__trust-close {
+  display: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (min-width: 1101px) {
+  .hero {
+    width: 100vw;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 0;
+    background: #f3efe8;
+    overflow: hidden;
+  }
+
+  .hero__inner {
+    display: none !important;
+  }
+
+  .hero-canvas {
+    position: relative;
+    display: block;
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    margin: 0;
+    aspect-ratio: auto;
+    overflow: hidden;
+  }
+
+  .hero-canvas__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: fill;
+    user-select: none;
+  }
+
+  .hero-hotspots {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .hero-hotspot {
+    position: absolute;
+    display: block;
+    border: 2px solid transparent;
+    border-radius: 0.35rem;
+    background: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .hero-hotspot:focus-visible {
+    outline: 3px solid #e25a35;
+    outline-offset: 3px;
+    background: rgba(226, 90, 53, 0.12);
+  }
+
+  body.debug-hotspots .hero-hotspot {
+    border-color: rgba(226, 90, 53, 0.9);
+    background: rgba(226, 90, 53, 0.2);
+  }
+
+  body.debug-hotspots .hero-hotspot::after {
+    content: attr(aria-label);
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: 100%;
+    padding: 0.2rem 0.35rem;
+    background: rgba(28, 33, 40, 0.92);
+    color: #fff;
+    font: 500 0.65rem/1.2 var(--font-sans);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hero-hotspot--nav-projects {
+    left: 28.9%;
+    top: 2.2%;
+    width: 5%;
+    height: 4%;
+  }
+
+  .hero-hotspot--nav-capabilities {
+    left: 35.5%;
+    top: 2.2%;
+    width: 6.8%;
+    height: 4%;
+  }
+
+  .hero-hotspot--nav-about {
+    left: 44.5%;
+    top: 2.2%;
+    width: 7%;
+    height: 4%;
+  }
+
+  .hero-hotspot--nav-contact {
+    left: 53.7%;
+    top: 2.2%;
+    width: 5.3%;
+    height: 4%;
+  }
+
+  .hero-hotspot--cta-top {
+    left: 63.85%;
+    top: 2.75%;
+    width: 13.75%;
+    height: 6.1%;
+  }
+
+  .hero-hotspot--cta-left {
+    left: 3.85%;
+    top: 62.85%;
+    width: 12.7%;
+    height: 6.35%;
+  }
+
+  .hero-hotspot--works {
+    left: 17.4%;
+    top: 62.85%;
+    width: 9%;
+    height: 6.35%;
+  }
+
+  .hero-hotspot--greenscan {
+    left: 70.75%;
+    top: 22.3%;
+    width: 27.1%;
+    height: 16.1%;
+  }
+
+  .hero-hotspot--serviceact {
+    left: 70.75%;
+    top: 39.75%;
+    width: 27.1%;
+    height: 15.5%;
+  }
+
+  .hero-hotspot--korzina {
+    left: 70.75%;
+    top: 56.6%;
+    width: 27.1%;
+    height: 16.85%;
+  }
+}
+
+/* Mobile <=860px: approved PNG stack; hide HTML reconstruction. */
+@media (max-width: 860px) {
+  .hero {
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .hero__inner {
+    display: none !important;
+  }
+
+  .hero-canvas {
+    display: none !important;
+  }
+
+  .hero-mobile {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero-mobile__screen {
+    position: relative;
+    width: 100%;
+    margin: 0;
+  }
+
+  .hero-mobile__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    margin: 0;
+    user-select: none;
+  }
+
+  .hero-mobile__nav {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+  }
+
+  .hero-mobile__menu-toggle {
+    position: absolute;
+    top: 1.8%;
+    left: 81.4%;
+    z-index: 5;
+    display: block;
+    width: 14.2%;
+    height: 4.5%;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 0.35rem;
+    background: transparent;
+    box-shadow: none;
+    color: transparent;
+    pointer-events: auto;
+  }
+
+  .hero-mobile__menu-toggle:hover {
+    background: transparent;
+  }
+
+  .hero-mobile__menu-toggle .nav__toggle-icon {
+    opacity: 0;
+  }
+
+  .hero-mobile__menu-toggle:focus-visible,
+  .hero-mobile__hotspot:focus-visible {
+    outline: 3px solid #e25a35;
+    outline-offset: 2px;
+    background: rgba(226, 90, 53, 0.12);
+  }
+
+  .hero-mobile__menu {
+    position: absolute;
+    top: 7%;
+    right: 4%;
+    left: 4%;
+    z-index: 4;
+    display: none;
+    width: auto;
+    padding: 0.7rem;
+    border: 1px solid rgba(22, 50, 45, 0.16);
+    border-radius: 1rem;
+    background: rgba(250, 247, 241, 0.98);
+    box-shadow: 0 1rem 2rem rgba(22, 50, 45, 0.18);
+    pointer-events: auto;
+  }
+
+  .hero-mobile__nav.is-open .hero-mobile__menu {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .hero-mobile__menu .nav__link,
+  .hero-mobile__menu .nav__link--cta {
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.65rem 0.8rem;
+    border-radius: 0.7rem;
+    color: #17201f;
+  }
+
+  .hero-mobile__menu .nav__link:hover,
+  .hero-mobile__menu .nav__link:focus-visible {
+    background: rgba(34, 107, 82, 0.1);
+  }
+
+  .hero-mobile__menu .nav__link--cta {
+    justify-content: center;
+    margin-top: 0.25rem;
+    background: #102129;
+    color: #fff;
+  }
+
+  .hero-mobile__hotspot {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    border: 2px solid transparent;
+    border-radius: 0.55rem;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .hero-mobile__hotspot--intro-cta {
+    top: 43.25%;
+    left: 6.1%;
+    width: 79%;
+    height: 4.95%;
+  }
+
+  .hero-mobile__hotspot--greenscan {
+    top: 55.9%;
+    left: 3%;
+    width: 94%;
+    height: 9.8%;
+  }
+
+  .hero-mobile__hotspot--serviceact {
+    top: 66.3%;
+    left: 3%;
+    width: 94%;
+    height: 9.7%;
+  }
+
+  .hero-mobile__hotspot--korzina {
+    top: 76.5%;
+    left: 3%;
+    width: 94%;
+    height: 9.8%;
+  }
+
+  .hero-mobile__hotspot--process-cta {
+    top: 87.3%;
+    left: 6%;
+    width: 86%;
+    height: 3.8%;
+  }
+
+  body.debug-hotspots .hero-mobile__hotspot,
+  body.debug-hotspots .hero-mobile__menu-toggle {
+    border-color: rgba(226, 90, 53, 0.95);
+    background: rgba(226, 90, 53, 0.2);
+  }
+
+  body.debug-hotspots .hero-mobile__hotspot::after,
+  body.debug-hotspots .hero-mobile__menu-toggle::after {
+    content: attr(aria-label);
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 0.15rem 0.3rem;
+    overflow: hidden;
+    background: rgba(28, 33, 40, 0.92);
+    color: #fff;
+    font: 500 0.6rem/1.2 var(--font-sans);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
