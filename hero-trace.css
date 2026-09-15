@@ -46,21 +46,309 @@
     margin: 0;
     aspect-ratio: auto;
     overflow: hidden;
+    isolation: isolate;
   }
 
-  .hero-canvas__image {
+  .hero-assemble {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .hero-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+    transform-origin: 50% 42%;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  .hero-layer--surface {
+    background:
+      radial-gradient(ellipse 80% 55% at 50% 40%, #f7f3ec 0%, #f3efe8 55%, #ebe4da 100%);
+    opacity: 0;
+    transform: none;
+  }
+
+  .hero-layer__media {
     display: block;
     width: 100%;
     height: 100%;
     max-width: none;
     object-fit: fill;
     user-select: none;
+    pointer-events: none;
+  }
+
+  /* Region clips from approved PNG — tuned to composition grid */
+  .hero-layer--header {
+    clip-path: inset(0 0 90% 0);
+  }
+
+  .hero-layer--headline {
+    clip-path: inset(8.5% 75% 28% 0.8%);
+  }
+
+  .hero-layer--input-1 {
+    clip-path: inset(14% 58% 72.5% 25.2%);
+  }
+
+  .hero-layer--input-2 {
+    clip-path: inset(27.2% 58% 62% 25.2%);
+  }
+
+  .hero-layer--input-3 {
+    clip-path: inset(37.8% 58% 51.2% 25.2%);
+  }
+
+  .hero-layer--input-4 {
+    clip-path: inset(48.5% 58% 39.5% 25.2%);
+  }
+
+  /* Workshop shell with hole for stages (evenodd) */
+  .hero-layer--workshop {
+    clip-path: polygon(
+      evenodd,
+      41.5% 18.5%,
+      68.6% 18.5%,
+      68.6% 70.5%,
+      41.5% 70.5%,
+      41.5% 18.5%,
+      43.2% 32.8%,
+      67% 32.8%,
+      67% 51.8%,
+      43.2% 51.8%,
+      43.2% 32.8%
+    );
+  }
+
+  .hero-layer--stages {
+    clip-path: inset(32.5% 32.8% 47.8% 42.8%);
+  }
+
+  .hero-layer--projects {
+    clip-path: inset(14% 0.4% 21% 69.5%);
+  }
+
+  .hero-layer--notes {
+    clip-path: polygon(
+      evenodd,
+      1% 74%,
+      24% 74%,
+      24% 88%,
+      1% 88%,
+      1% 74%,
+      40% 71%,
+      69% 71%,
+      69% 79%,
+      40% 79%,
+      40% 71%
+    );
+  }
+
+  .hero-layer--desk {
+    clip-path: polygon(
+      evenodd,
+      82% 0%,
+      100% 0%,
+      100% 26%,
+      82% 26%,
+      82% 0%,
+      60% 70%,
+      100% 70%,
+      100% 94%,
+      60% 94%,
+      60% 70%,
+      0% 72%,
+      10% 72%,
+      10% 100%,
+      0% 100%,
+      0% 72%
+    );
+  }
+
+  .hero-layer--trust {
+    clip-path: inset(86% 0 0 0);
+  }
+
+  .hero-canvas__image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: fill;
+    user-select: none;
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  /* During entry: hide plate so assembly gaps stay intentional */
+  .js .hero-canvas[data-hero-motion].is-assembling:not(.is-plate-ready) .hero-canvas__image {
+    opacity: 0;
+  }
+
+  /* Pre-handoff: plate fully painted UNDER finished layers (no fade) */
+  .js .hero-canvas[data-hero-motion].is-assembling.is-plate-ready .hero-canvas__image {
+    opacity: 1;
+    transition: none;
+  }
+
+  .js .hero-canvas.is-static .hero-assemble {
+    display: none;
+  }
+
+  .js .hero-canvas.is-static .hero-canvas__image {
+    opacity: 1;
+  }
+
+  /* Entry assembly */
+  .hero-canvas.is-assembling .hero-layer--surface {
+    animation: hero-surface-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--header {
+    animation: hero-layer-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--headline {
+    animation: hero-layer-reveal 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--input-1 {
+    animation: hero-layer-lay 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.3s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--input-2 {
+    animation: hero-layer-lay 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.48s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--input-3 {
+    animation: hero-layer-lay 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.66s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--input-4 {
+    animation: hero-layer-lay 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.84s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--workshop {
+    animation: hero-layer-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) 2.25s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--stages {
+    animation: hero-layer-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 2.7s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--projects {
+    animation: hero-layer-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 3.2s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--notes {
+    animation: hero-layer-soft 0.65s ease 3.75s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--desk {
+    animation: hero-layer-soft 0.7s ease 3.95s forwards;
+  }
+
+  .hero-canvas.is-assembling .hero-layer--trust {
+    animation: hero-layer-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) 4.35s forwards;
+  }
+
+  /* After assembly: snap to seamless plate — never crossfade both to <1 */
+  .hero-canvas.is-live .hero-assemble {
+    display: none;
+  }
+
+  .js .hero-canvas.is-live:not(.is-static) .hero-canvas__image {
+    z-index: 1;
+    opacity: 1;
+    transition: none;
+  }
+
+  @keyframes hero-surface-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes hero-layer-soft {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 6px, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes hero-layer-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 14px, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes hero-layer-reveal {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 26px, 0);
+      clip-path: inset(8.5% 75% 55% 0.8%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      clip-path: inset(8.5% 75% 28% 0.8%);
+    }
+  }
+
+  @keyframes hero-layer-lay {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -8px, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-canvas .hero-assemble {
+      display: none;
+    }
+
+    .hero-canvas .hero-canvas__image {
+      opacity: 1 !important;
+    }
+
+    .hero-canvas .hero-layer {
+      animation: none !important;
+    }
   }
 
   .hero-hotspots {
     position: absolute;
     inset: 0;
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
   }
 

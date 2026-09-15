@@ -119,4 +119,64 @@
       mobileNavQuery.addListener(onBreakpointChange);
     }
   }
+
+  /* ---------- Desktop HERO: entry assembly only ---------- */
+
+  const heroCanvas = document.querySelector("[data-hero-motion]");
+  const desktopMotionQuery = window.matchMedia("(min-width: 1101px)");
+
+  if (heroCanvas && desktopMotionQuery.matches) {
+    const ASSEMBLY_MS = 5200;
+
+    const setStatic = () => {
+      heroCanvas.classList.remove("is-assembling", "is-live", "is-plate-ready");
+      heroCanvas.classList.add("is-static");
+    };
+
+    const startLive = () => {
+      /* 1) Paint full PNG under finished layers while they still cover it */
+      heroCanvas.classList.add("is-plate-ready");
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          /* 2) Remove overlay only after plate is already opacity:1 underneath */
+          heroCanvas.classList.add("is-live");
+          heroCanvas.classList.remove("is-assembling", "is-plate-ready");
+        });
+      });
+    };
+
+    const startAssembly = () => {
+      heroCanvas.classList.remove("is-static", "is-live", "is-plate-ready");
+      heroCanvas.classList.add("is-assembling");
+      window.setTimeout(startLive, ASSEMBLY_MS);
+    };
+
+    if (reduceMotion.matches) {
+      setStatic();
+    } else {
+      startAssembly();
+    }
+
+    const onMotionPreference = () => {
+      if (reduceMotion.matches) {
+        setStatic();
+        return;
+      }
+      if (
+        !heroCanvas.classList.contains("is-live") &&
+        !heroCanvas.classList.contains("is-assembling")
+      ) {
+        startAssembly();
+      }
+    };
+
+    if (typeof reduceMotion.addEventListener === "function") {
+      reduceMotion.addEventListener("change", onMotionPreference);
+    } else if (typeof reduceMotion.addListener === "function") {
+      reduceMotion.addListener(onMotionPreference);
+    }
+  } else if (heroCanvas) {
+    heroCanvas.classList.add("is-static");
+  }
 })();
