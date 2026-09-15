@@ -1448,6 +1448,89 @@ a {
 }
 
 /* =========================================================
+   SITE-LOWER — one full-bleed canvas (works → principles)
+   Content keeps its own max-width; atmosphere is on the wrapper only.
+   ========================================================= */
+
+.site-lower {
+  --lower-cream: #f3efe8;
+  --lower-bg-asset: url("assets/backgrounds/shatalov-works-lower-bg-01.png");
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background-color: var(--lower-cream);
+  overflow-x: clip;
+}
+
+/*
+  Single continuous artwork layer on the wrapper:
+  full viewport width × full .site-lower height.
+  No per-section sheets, no tile, no side inset.
+*/
+.site-lower::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: transparent;
+  background-image: var(--lower-bg-asset);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  opacity: 0.46;
+  /* Soft join only to HERO above / dark contact below */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 1.2%,
+    #000 98.8%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 1.2%,
+    #000 98.8%,
+    transparent 100%
+  );
+}
+
+/* Uniform light calm — same strength everywhere (no section banding) */
+.site-lower::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: rgba(243, 239, 232, 0.14);
+}
+
+.site-lower > .works,
+.site-lower > .capabilities,
+.site-lower > .about,
+.site-lower > .principles {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  background-color: transparent;
+}
+
+@media (max-width: 860px) {
+  .site-lower::before {
+    opacity: 0.32;
+  }
+
+  .site-lower::after {
+    background: rgba(243, 239, 232, 0.22);
+  }
+}
+
+/* =========================================================
    WORKS — production layout + timlead text improvements
    ========================================================= */
 
